@@ -2,14 +2,15 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Acertijo 4</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 20px;
-      text-align: center;
+     font-family: Arial, sans-serif;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 16px;
+  text-align: center;
     }
     #puzzle-container {
       display: none; /* se muestra solo cuando aciertan */
@@ -20,7 +21,8 @@
       gap: 5px;
     }
     #puzzle-container img {
-      max-width: 48%;
+      max-width: 100%;
+  height: auto;
     }
     #hint {
       display: none;
@@ -28,14 +30,14 @@
       font-weight: bold;
     }
     input {
-      padding: 8px;
-      width: 80%;
-      max-width: 300px;
+       width: 100%;
+  max-width: 320px;
+  font-size: 16px;
+  padding: 8px;
     }
     button {
-      padding: 8px 16px;
-      margin-top: 10px;
-      cursor: pointer;
+      font-size: 16px;
+  padding: 10px 16px;
     }
     #error {
       color: red;
@@ -99,4 +101,5 @@
   </script>
 </body>
 </html>
+
 
