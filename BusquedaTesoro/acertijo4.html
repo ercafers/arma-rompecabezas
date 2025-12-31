@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Acertijo 4</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: center;
+    }
+    #puzzle-container {
+      display: none; /* se muestra solo cuando aciertan */
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 5px;
+    }
+    #puzzle-container img {
+      max-width: 48%;
+    }
+    #hint {
+      display: none;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input {
+      padding: 8px;
+      width: 80%;
+      max-width: 300px;
+    }
+    button {
+      padding: 8px 16px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+    #error {
+      color: red;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Acertijo 4</h1>
+
+  <p id="riddle">
+   Ya ves, ya ves, tan claro que es y no me la adivinas de aquí a un mes.
+  </p>
+
+  <input type="text" id="answer" placeholder="Escribe tu respuesta">
+  <br>
+  <button onclick="checkAnswer()">Comprobar</button>
+
+  <p id="error"></p>
+
+<!-- Pista sobre el siguiente QR -->
+  <p id="hint">
+    Pista: el siguiente código QR está en __________.
+  </p>
+
+  <!-- Contenedor con las piezas acumuladas -->
+  <div id="puzzle-container" style="display:none;">
+    <img src="pieza4.png" alt="Pieza 4 del rompecabezas">    
+  </div>
+
+  
+
+  <script>
+    function normalizar(texto) {
+      return texto
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .trim();
+    }
+
+    function checkAnswer() {
+      const input = document.getElementById("answer").value;
+      const respuestaUsuario = normalizar(input);
+
+      // Cambia esto por la respuesta correcta del acertijo 4
+      const respuestaCorrecta = normalizar("llave");
+
+      const error = document.getElementById("error");
+      const puzzle = document.getElementById("puzzle-container");
+      const hint = document.getElementById("hint");
+
+      if (respuestaUsuario === respuestaCorrecta) {
+        error.textContent = "";
+        puzzle.style.display = "flex";
+        hint.style.display = "block";
+      } else {
+        error.textContent = "Respuesta incorrecta, intenta de nuevo.";
+      }
+    }
+  </script>
+</body>
+</html>
